@@ -277,10 +277,14 @@ section { padding-top: 1rem;
 
 p, ol, ul { font-size: 1.4rem; }
 
-ul { width: 45%;
+ul { width: 87.5%;
      -webkit-padding-start: 5%;
      -webkit-padding-end: 5%;
      list-style-type: none; }
+
+ol { width: 87.5%;
+     -webkit-padding-start: 5%;
+     -webkit-padding-end: 5%; }
 
 ul li { padding: 0.5em 0; } //vertical padding on list items screws up vertical rhythym
 
@@ -342,7 +346,7 @@ div.table-wrapper { overflow-x: auto; } //changed all overflow values to 'auto' 
 
 @media screen and (max-width: 760px) { p, footer,div.mathblock { width: 90%; }
                                        pre code { width: 87.5%; }
-                                       ul { width: 85%; }
+                                       ul, ol { width: 85%; }
                                        figure { max-width: 90%; }
                                        figcaption, figure.fullwidth figcaption { margin-right: 0%;
                                                                                  max-width: none; }
@@ -463,9 +467,15 @@ ul.footer-links li{
 
 //Full width page styling stuff
 
-body.full-width, .content-listing, ul.content-listing li.listing{ width: 90%;
+body.full-width, .content-listing, li.listing{ width: 90%;
        margin-left: auto;
        margin-right: auto;
+       padding: 0% 5%;
+
+}
+ul.content-listing, ol.content-listing{ width: 85%;
+       margin-left: 0;
+       margin-right: 0;
        padding: 0% 5%;
 
 }
