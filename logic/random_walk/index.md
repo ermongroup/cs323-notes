@@ -105,12 +105,13 @@ assignment). In either the case where one of the variables is set
 incorrectly or both of the variables are set incorrectly, the following
 inequalities hold for the transition probabilities:
 
-$$
+\$$
 \begin{eqnarray*}
 P[X_{t+1}=j+1\mid X_{t}=j] & \geq & \frac{1}{2}\\
 P[X_{t+1}=j-1\mid X_{t}=j] & \leq & \frac{1}{2}
 \end{eqnarray*}
 $$
+{: style="text-align: center"}
 
 for any $$1\leq j\leq n-1$$ and all time steps $$t$$. For the boundary
 cases, we have that $$P[X_{t+1}=1\mid X_{t}=0]=1$$ and $$P[X_{t+1}=n\mid X_{t}=n]=1$$
@@ -127,12 +128,13 @@ and define $$h_{j}=E[y_{j}]$$. Note that the variables take on the
 boundary values $$h_{n}=0$$ and $$h_{0}=1+h_{1}$$. The expected number
 of steps are related via the formula:
 
-$$
+\$$
 \begin{eqnarray*}
 E[y_{j}] & = & \frac{1}{2}(1+E[y_{j-1}])+\frac{1}{2}(1+E[y_{j+1}])\\
 h_{j} & = & \frac{h_{j-1}+h_{j+1}}{2}+1
 \end{eqnarray*}
 $$
+{: style="text-align: center"}
 
 **Claim 1**: $$h_{j}=h_{j+1}+2j+1$$
 
@@ -182,12 +184,13 @@ assignment of that variable
 Using a similar analysis as in the last lecture, the bounds for the
 transition probabilities become
 
-$$
+\$$
 \begin{eqnarray*}
 P[X_{t+1}=j+1\mid X_{t}=j] & \geq & \frac{1}{3}\\
 P[X_{t+1}=j-1\mid X_{t}=j] & \leq & \frac{2}{3}
 \end{eqnarray*}
 $$
+{: style="text-align: center"}
 
 for any $$1\leq j\leq n-1$$ and all time steps $$t$$. For the boundary
 cases, we have that $$P[X_{t+1}=1\mid X_{t}=0]=1$$ and $$P[X_{t+1}=n\mid X_{t}=n]=1$$
@@ -198,11 +201,12 @@ and define $$h_{j}=E[y_{j}]$$. Note that the variables take on the
 boundary values $$h_{n}=0$$ and $$h_{0}=1+h_{1}$$. The expected number
 of steps are related via the formula:
 
-$$
+\$$
 \begin{eqnarray*}
 h_{j} & = & \frac{2}{3}h_{j-1}+\frac{1}{3}h_{j+1}+1\\
 \end{eqnarray*}
 $$
+{: style="text-align: center"}
 
 Define $$f_{j}=h_{j}-h_{j-1}$$. From the recurrence relation above,
 we have that $$f_{j+1}=2f_{j}-3$$. Since $$f_{1}=-1$$ by the boundary
@@ -241,13 +245,14 @@ moves to the right. Using the formula above, we have that $$q_{j}\geq{3j \choose
 By Stirling's approximation, $$n!\sim\sqrt{2\pi n}(\frac{n}{e})^{n}$$
 so 
 
-$$
+\$$
 \begin{eqnarray*}
 {3j \choose j} & = & \frac{(3j)!}{(2j)!j!}\\
  & \geq & \frac{c\sqrt{2\pi3j}}{\sqrt{2\pi j}\sqrt{2\pi2j}}(\frac{3j}{e})^{3j}(\frac{e}{2j})^{2j}(\frac{e}{j})^{j}\\
  & = & \frac{a}{\sqrt{j}}(\frac{27}{4})^{j}
 \end{eqnarray*}
 $$
+{: style="text-align: center"}
 
 for $$j>0$$. Combining this bound with our previous expression, $$q_{j}\geq\frac{a}{\sqrt{j}}(\frac{1}{2})^{j}$$
 for $$j>0$$. The boundary condition is $$q_{0}=1$$.
@@ -256,7 +261,7 @@ Combining everything, the probability that we will reach state $$n$$,
 starting from a truth assignment initialized uniformly at random,
 in $$\leq3n$$ moves is
 
-$$
+\$$
 \begin{eqnarray*}
 q & \geq & \sum_{j=0}^{n}P(X_{0}=n-j)q_{j}\\
  & \geq & \frac{1}{2^{n}}+\sum_{j=1}^{n}\frac{1}{2^{n}}{n \choose j}(\frac{a}{\sqrt{j}}\frac{1}{2^{j}})\\
@@ -264,6 +269,7 @@ q & \geq & \sum_{j=0}^{n}P(X_{0}=n-j)q_{j}\\
  & \approx & \frac{a}{\sqrt{n}}(\frac{3}{4})^{n}
 \end{eqnarray*}
 $$
+{: style="text-align: center"}
 
 Therefore, the expected number of times that we have to repeat the
 procedure before getting a success is $$\frac{1}{q}\leq\frac{\sqrt{n}}{a}(\frac{4}{3})^{n}$$.
