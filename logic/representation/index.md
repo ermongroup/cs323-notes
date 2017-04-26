@@ -23,7 +23,13 @@ Sentences are defined recursively as follows:
 -   A propositional variable is a sentence (this is known as an
     atomic sentence)
 -   If $$\alpha$$ and $$\beta$$ are sentences, then $$\neg\alpha$$,
-    $$\alpha\lor\beta$$, and $$\alpha\land\beta$$ are valid sentences
+    $${\left(\alpha\lor\beta\right)}$$, and
+    $${\left(\alpha\land\beta\right)}$$ are valid sentences
+
+For example,
+$${\left({\left({\alpha}\lor\beta\right)}\land{\alpha}\right)}$$ is a
+valid sentence while $${\left({\alpha}\lor\beta\land{\alpha}\right)}$$
+isn’t a valid sentence.
 
 ## Semantics
 
@@ -37,12 +43,16 @@ using the following recursive rules:
 -   $${\omega}\models p_{i}$$ if and only if $${\omega}(p_{i})$$ is true
 -   $${\omega}\models\neg{\alpha}$$ if and only if
     $${\omega}\not\models{\alpha}$$
--   $${\omega}\models{\alpha}\lor\beta$$ if and only if
+-   $${\omega}\models{\left({\alpha}\lor\beta\right)}$$ if and only if
     ($${\omega}\models{\alpha}$$) OR ($${\omega}\models\beta$$)
--   $${\omega}\models{\alpha}\land\beta$$ if and only if
+-   $${\omega}\models{\left({\alpha}\land\beta\right)}$$ if and only if
     ($${\omega}\models{\alpha}$$) AND ($${\omega}\models\beta$$)
 -   (Note that $${\alpha}\Rightarrow\beta$$ is syntactic sugar for
     $$\neg\alpha\lor\beta$$, and we can use the rules above)
+
+For example, $${\left({\alpha}\lor\neg{\alpha}\right)}$$ is true in any
+world while $${\left({\alpha}\land\neg{\alpha}\right)}$$ is never true in
+any world.
 
 ## Knowledge Base
 
@@ -51,10 +61,15 @@ $${\alpha}_{1},{\alpha}_{2},...,{\alpha}_{k}$$ that we know are true, i.e.
 $${\alpha}_{1}\land{\alpha}_{2}\land...\land{\alpha}_{k}$$. The sentences
 in the knowledge base allows us to compactly specify the allowable
 states of the world. By adding new sentences, the number of possible
-worlds consistent with our knowledge base could remain the same (if the
-new sentence is entailed by existing sentences), decrease (if we gain
-new information), or go to zero (if the new sentence is inconsistent
-with the existing knowledge base).
+worlds consistent with our knowledge base could decrease (if we gain new
+information), go to zero (if the new sentence is inconsistent with the
+existing knowledge base), or remain the same (if the new sentence is
+entailed by existing sentences).
+
+![image](kb.png)
+
+*Figure: By adding $$\Delta$$ to our KB $$\Gamma$$, the number of possible
+worlds can (i) decrease, (ii) go to zero, or (iii) remain the same.*
 
 We will make use of the following definitions:
 -   A sentence is satisfiable (consistent) if there exists at least one
@@ -118,10 +133,10 @@ procedure:
     conjunctions into CNF using this procedure can create an exponential
     number of clauses.)
 
-Checking satisfiability in CNF form is easy. A clause is satisfiable if
-and only if at least one of the literals (a variable or the negation of
-a variable) is set to true. A sentence is satisfiable if and only if
-each clause is satisfiable.
+Checking if an assignment satisfies a CNF formula is easy. A clause is
+satisfiable if and only if at least one of the literals (a variable or
+the negation of a variable) is set to true. A sentence is satisfiable if
+and only if each clause is satisfiable.
 
 Suppose we want to test the satisfiability of a formula $$\Delta$$ in CNF.
 Consider what happens when we set a propositional variable $$P$$ to true.

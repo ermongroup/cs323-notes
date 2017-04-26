@@ -94,6 +94,8 @@ or decreases by 1. Thus, in the inner loop when we flip the truth
 assignment of some variable, if $$X_{t}=j$$, then $$X_{t+1}$$ can only take
 on the values $$\{j-1,j+1\}$$.
 
+![image](markov_chain_2sat.png)
+
 To analyze the transition probabilities, note that when we pick a
 violated clause in the inner loop, we know that the truth assignment for
 at least one of the variables in that clause does not match the
@@ -174,6 +176,8 @@ Input: a 3-CNF formula $$\phi(x_{1},...,x_{n})$$
 2.  Return unsatisfiable
 
 ## Analysis of algorithm for 3-SAT
+
+![image](markov_chain_3sat.png)
 
 Using a similar analysis as in the last lecture, the bounds for the
 transition probabilities become
