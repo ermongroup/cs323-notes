@@ -17,3 +17,6 @@ This course is a graduate level introduction to automated reasoning techniques a
 - [References](logic/references/)
 
 ## Probabilistic Reasoning
+
+- [Generalizing satisfiability problems](probabilistic/generalizing/): Minimum Vertex Cover (MAX-SAT). Markov logic networks. Factor graphs.
+- [Markov chains](probabilistic/markov_chains/): Markov Chain Monte Carlo (MCMC). Markov chains - introduction. Markov chains - proof of convergence.
