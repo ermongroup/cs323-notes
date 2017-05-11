@@ -59,18 +59,18 @@ distribution $$\Pi^{0}=\sum_{i}\beta_{i}v_{i}$$ and easily determine
 $$\Pi^{0}P=\sum_{i}\beta_{i}v_{i}P=\sum_{i}\beta_{i}{\alpha}_{i}v_{i}$$.
 Then after a large number of time steps $$T$$, we will have
 $$\Pi^{0}P^{T}=\sum_{i}\beta_{i}v_{i}P^{T}=\sum_{i}\beta_{i}{\alpha}_{i}^{T}v_{i}$$.
-
 In general, it is hard to say anything about the spectral properties of
 an arbitrary matrix. We know $$P$$ is a row-stochastic matrix,
 $$\sum_{j}P_{ij}=1$$. But we want to put further restrictions on $$P$$ to
-analyze the eigenvectors. We will analyze Markov chains which are
-strongly connected (for any 2 states $$(i,j)\in S$$, there exists a path
-from $$i$$ to $$j$$). This is a natural assumption since no matter what
-state we start in, we want to be able to reach the target distribution
-in the limit.
+analyze the eigenvectors.
 
-Other assumptions we will make are that the Markov chain is irreducible
-(all states communicate with each other: for all $$i,j\in S$$,
+We will analyze Markov chains which are strongly connected (for any 2
+states $$(i,j)\in S$$, there exists a path from $$i$$ to $$j$$). This is a
+natural assumption since no matter what state we start in, we want to be
+able to reach the target distribution in the limit.
+
+The key assumptions we will make are that the Markov chain is
+irreducible (all states communicate with each other: for all $$i,j\in S$$,
 $$p_{ij}^{(n)}>0$$ for some $$n$$, meaning you can go from any state to any
 other state for a large enough $$n$$) and the Markov chain is aperiodic
 (there exists $$n$$ such that for all $$n'\geq n$$,
@@ -168,13 +168,11 @@ where all of the entries in $$w_{j}$$ are the same. This concludes the
 proof that $$P^{n}\to W$$ as $$n\to\infty$$ for a $$W$$ where all of the rows
 of $$W$$ are identical. The interpretation of this limit is that
 regardless of the initial state we start in, the limiting probability
-distribution is the same.
+distribution is the same. If $$\Pi^{0}$$ is any probability distribution,
+then $$\lim_{n\to\infty}\Pi^{0}P^{n}=\Pi^{0}W=w$$ where $$w$$ is any row of
+$$W$$.
 
-Let $$w$$ be one of the rows of $$W$$ (all rows of $$W$$ are identical). We
-will show that $$w$$ is a stationary distribution of $$P$$. Let
+We will now show that $$w$$ is a stationary distribution of $$P$$. Let
 $$W=\lim_{n\to\infty}P^{n}$$. Since $$P^{n+1}=P^{n}P$$, by taking limits on
 both sides, we get $$W=WP$$. Row-wise, $$w=wP$$. We also see that $$w$$ is a
 left eigenvector of $$P$$ with an eigenvalue of 1.
-
-If $$\Pi^{0}$$ is any probability distribution, then
-$$\lim_{n\to\infty}\Pi^{0}P^{n}=\Pi^{0}W=W$$.

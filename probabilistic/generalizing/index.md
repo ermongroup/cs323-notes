@@ -12,7 +12,7 @@ representational power, from least to greatest: SAT $$\rightarrow$$
 Weighted MAX-SAT $$\rightarrow$$ Markov logic networks $$\to$$ Factor
 graphs.
 
-# Minimum Vertex Cover (MAX-SAT)
+# Minimum Vertex Cover (Weighted MAX-SAT)
 
 Given an undirected graph $$G=(V,E)$$, we want to find a subset of
 vertices $$U\subseteq V$$ such that for each $$(i,j)\in E$$, either $$i\in U$$
@@ -38,22 +38,22 @@ of the clauses that $${\sigma}$$ does not satisfy. Then the optimization
 problem is finding the assignment $${\sigma}$$ with maximum score or
 minimum cost.
 
-To formulate the minimum vertex cover problem as a MAX-SAT problem, we
-find the assignment $${\sigma}$$ that minimizes the cost of the following
-optimization problem: for each $$(i,j)\in E$$,
+To formulate the minimum vertex cover problem as a Weighted MAX-SAT
+problem, we find the assignment $${\sigma}$$ that minimizes the cost of
+the following optimization problem: for each $$(i,j)\in E$$,
 $${\left(X_{i}\lor X_{j}\right)}$$ with weight $$\infty$$ and for each
 $$i\in V$$, $$\neg X_{i}$$ with weight 1.
 
-To solve MAX-SAT, we can adapt solvers for SAT. Local search algorithms
-and greedy heuristics can use the cost or score function when deciding
-between possible moves. During systematic search, when exploring the
-search tree, solvers can use branch and bound techniques when deciding
-which subtrees to prune. This involves keeping track of lower bounds or
-upper bounds based on the best solution found so far and guesses for
-bounds in the current subtree for either the cost or score function. To
-get the bounds for the subtrees, one technique is relaxing the domain of
-an integer optimization problem from $$x\in\{0,1\}$$ to $$x\in[0,1]$$ and
-solving the easier optimization problem.
+To solve Weighted MAX-SAT, we can adapt solvers for SAT. Local search
+algorithms and greedy heuristics can use the cost or score function when
+deciding between possible moves. During systematic search, when
+exploring the search tree, solvers can use branch and bound techniques
+when deciding which subtrees to prune. This involves keeping track of
+lower bounds or upper bounds based on the best solution found so far and
+guesses for bounds in the current subtree for either the cost or score
+function. To get the bounds for the subtrees, one technique is relaxing
+the domain of an integer optimization problem from $$x\in\{0,1\}$$ to
+$$x\in[0,1]$$ and solving the easier optimization problem.
 
 # Markov logic networks
 

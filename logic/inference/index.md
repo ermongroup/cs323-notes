@@ -230,5 +230,5 @@ represents a clause where the variables in the disjunction are listed
 terminated with a “0”). Variables are assumed to be numbered from 1 to
 n. For example, the clause
 $${\left(\neg X_{9}\lor X_{40}\lor\neg X_{68}\right)}$$ is represented as
-`-9 40 -68 0`. Further instructions of the file format are available
+`-9 40 -68 0`. Further descriptions of the file formats are available
 [here](http://www.cs.ubc.ca/~hoos/SATLIB/Benchmarks/SAT/satformat.ps).
