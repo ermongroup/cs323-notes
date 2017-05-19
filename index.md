@@ -20,3 +20,5 @@ This course is a graduate level introduction to automated reasoning techniques a
 
 - [Generalizing satisfiability problems](probabilistic/generalizing/): Minimum Vertex Cover (Weighted MAX-SAT). Markov logic networks. Factor graphs.
 - [Markov chains](probabilistic/markov_chains/): Markov Chain Monte Carlo (MCMC). Markov chains - introduction. Markov chains - proof of convergence.
+- [Metropolis-Hastings](probabilistic/mh/): Recap of Markov chains. Markov Chain Monte Carlo (MCMC). Metropolis-Hastings. Metropolis-Hastings algorithm.
+- [Gibbs sampling](probabilistic/gibbs/): Sampling and inference tasks. Gibbs sampling. Variants of Gibbs sampling. Simulated annealing.

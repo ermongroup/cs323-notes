@@ -12,9 +12,9 @@ $$Z=\sum_{x\in\{0,1\}^{n}}\prod_{c\in\mathcal{C}}\phi_{c}(x)$$.
 
 Recall the random walk algorithm that we discussed for deciding
 satisfiability for SAT, where we moved along the edges of the Boolean
-hypercube looking for a satisfying assignment by choosing a violated
-clause and flipping the truth assignment of one of the variables in that
-clause to make that clause satisfiable.
+hypercube looking for a satisfying assignment by picking any violated
+clause and flipping the truth assignment of a randomly chosen variable
+in that clause to make that clause satisfiable.
 
 We will present a random walk Monte Carlo method which moves around the
 Boolean hypercube in a special way such that the random walk will visit
@@ -53,12 +53,12 @@ initial state $$\Pi^{0}$$, we will have $$\Pi^{0}P^{T}$$ converge to the
 target probability distribution $$p(x)$$ after a sufficiently long time.
 
 Let us first look at the eigenvectors of $$P$$, any vector $$v$$ satisfying
-$$vP={\alpha}v$$ for some $${\alpha}$$. If we have a basis of eigenvectors
+$$vP={\lambda}v$$ for some $${\lambda}$$. If we have a basis of eigenvectors
 $$v_{1},...,v_{2^{n}}$$, then we can take any initial probability
-distribution $$\Pi^{0}=\sum_{i}\beta_{i}v_{i}$$ and easily determine
-$$\Pi^{0}P=\sum_{i}\beta_{i}v_{i}P=\sum_{i}\beta_{i}{\alpha}_{i}v_{i}$$.
-Then after a large number of time steps $$T$$, we will have
-$$\Pi^{0}P^{T}=\sum_{i}\beta_{i}v_{i}P^{T}=\sum_{i}\beta_{i}{\alpha}_{i}^{T}v_{i}$$.
+distribution $$\Pi^{0}=\sum_{i}{\alpha}_{i}v_{i}$$ and easily determine
+$$\Pi^{0}P=\sum_{i}{\alpha}_{i}v_{i}P=\sum_{i}{\alpha}_{i}{\lambda}_{i}v_{i}$$.
+Then after a large number of time steps $$t$$, we will have
+$$\Pi^{0}P^{t}=\sum_{i}{\alpha}_{i}v_{i}P^{t}=\sum_{i}{\alpha}_{i}{\left({\lambda}_{i}\right)}^{t}v_{i}$$.
 In general, it is hard to say anything about the spectral properties of
 an arbitrary matrix. We know $$P$$ is a row-stochastic matrix,
 $$\sum_{j}P_{ij}=1$$. But we want to put further restrictions on $$P$$ to
@@ -78,17 +78,19 @@ $$P(x_{n'}=i\mid x_{0}=i)>0$$).
 
 $$\Pi^{*}$$ is a stationary probability distribution if
 $$\Pi^{*}=\Pi^{*}P$$. In general, stationary probability distributions are
-not unique (consider two nodes with self-loops so
+not unique. The irreducibility condition guarantees that the stationary
+distribution is unique. For an example of what happens when we do not
+have irreducibility, consider the case of two nodes with self-loops with
 $$P=\begin{bmatrix}1 & 0\\
 0 & 1
-\end{bmatrix}$$).
+\end{bmatrix}$$.
 
 $$\Pi^{*}$$ is the limiting distribution if for every initial probability
 distribution $$\Pi^{0}$$, $$\lim_{n\to\infty}\Pi^{n}=\Pi^{*}$$. The
-aperiodicity condition guarantees that the limit exists. (Comment: This
-is a technical condition. In practice, might not need aperiodicity.) For
-an example of what happens when we do not have aperiodicity, consider
-$$P=\begin{bmatrix}0 & 1\\
+aperiodicity condition is necessary for the limit to exist. (Comment:
+This is a technical condition. In practice, we might not need
+aperiodicity.) For an example of what happens when we do not have
+aperiodicity, consider $$P=\begin{bmatrix}0 & 1\\
 1 & 0
 \end{bmatrix}$$.
 
